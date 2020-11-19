@@ -10,7 +10,8 @@ int main() {
 		return 1;
 	}
 
-	window = glfwCreateWindow(800, 600, "Hello World", nullptr, nullptr);
+	window = glfwCreateWindow(800, 600, "Hello World",
+                           nullptr, nullptr);
 
 	if (!window) {
 		cout << "No window" << '\n';
@@ -19,7 +20,22 @@ int main() {
 
 	glfwMakeContextCurrent(window);
 
+	auto data = new unsigned char[100 * 100 * 3];
+	for (int x=0; x<100; ++x) {
+	    for (int y=0; y<100; ++y) {
+	        data[y * 100 * 3 + x * 3] = 0xff;
+            data[y * 100 * 3 + x * 3 + 1] = 0x00;
+            data[y * 100 * 3 + x * 3 + 2] = 0x00;
+	    }
+	}
+
+	// Set background color
+	glClearColor(0.1, 0.5, 0.7, 1.0);
+
 	while (!glfwWindowShouldClose(window)) {
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+		glDrawPixels(100, 100, GL_RGB, GL_UNSIGNED_BYTE, data);
+		glfwSwapBuffers(window);
 		glfwWaitEvents();
 	}
 
