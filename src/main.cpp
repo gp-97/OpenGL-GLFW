@@ -28,6 +28,13 @@ int main() {
             data[y * 100 * 3 + x * 3 + 2] = 0x00;
 	    }
 	}
+	for (int x=25; x<75; ++x) {
+	    for (int y=25; y<75; ++y) {
+	        data[y * 100 * 3 + x * 3] = 0x00;
+	        data[y * 100 * 3 + x * 3 + 1] = 0xff;
+            data[y * 100 * 3 + x * 3 + 2] = 0x00;
+	    }
+	}
 
 	// Set background color
 	glClearColor(0.1, 0.5, 0.7, 1.0);
