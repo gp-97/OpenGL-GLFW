@@ -14,3 +14,5 @@ Basics of GLFW and OpenGL in C++
   $ make
   $ ./OpenGL-GLFW
   ```
+#### Result:
+
