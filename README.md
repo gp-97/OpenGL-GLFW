@@ -16,3 +16,4 @@ Basics of GLFW and OpenGL in C++
   ```
 #### Result:
 
+![](https://github.com/gp-97/OpenGL-GLFW/blob/master/result.png)
